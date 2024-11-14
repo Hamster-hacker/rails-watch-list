@@ -1,9 +1,9 @@
-<h1 class="text-center my-4">List: <%= @list.name %></h1>
+<h1 class="text-center my-4 text-light"><%= @list.name %></h1>
 
 
 <!-- Movies Section -->
 <%if @list.bookmarks.any?%>
-<h2 class="text-center my-4">Movies in this List:</h2>
+<h2 class="text-center text-light my-4">Movies in this List:</h2>
 <div class="container">
     <!-- Back and Create Bookmark Links -->
     <div  class="d-flex justify-content-between ms-auto mb-3">
@@ -37,7 +37,7 @@
   </div>
 </div>
 <%else%>
-<h2 class="text-center mb-5">No movies in this list yet :(</h2>
+<h2 class="text-center text-light mb-5">No movies in this list yet :(</h2>
 <div  class="text-center ms-auto mb-3">
       <%= link_to "Back to Lists", lists_path, class: "btn btn-primary" %>
       <%= link_to "Create Bookmark", new_list_bookmark_path(@list), class: "btn btn-success" %>

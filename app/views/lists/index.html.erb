@@ -1,7 +1,8 @@
-<div class="banner mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://149512919.v2.pressablecdn.com/wp-content/uploads/2021/12/philly-movies-hero-banner.jpg);">
+<div class="banner mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7)), url(https://149512919.v2.pressablecdn.com/wp-content/uploads/2021/12/philly-movies-hero-banner.jpg);">
   <div class="container">
-    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
+  <h1>Turn your movie chaos into <strong>cinematic order</strong>!</h1>
+  <p>Stop scrolling endlessly. Save, organize, and revisit your favorite films</p>
+  <p><i>— because Netflix can’t remember everything for you.</i></p>
   </div>
 </div>
 
@@ -10,9 +11,9 @@
     <div class="row">
       <% @lists.each do |list| %>
           <div class="col-md-4 mb-4"> <!-- Bootstrap grid for 3 columns on medium screens -->
-            <div class="card h-100" style="overflow: hidden;"> <!-- Use h-100 to ensure cards take full height -->
+            <div class="card h-100 border-0" style="overflow: hidden; background-color: #121212;" > <!-- Use h-100 to ensure cards take full height -->
               <%= link_to list do %>
-                <div class="card-category image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.image_url %>)">
+                <div class="card-category image" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url(<%= list.image_url %>)">
                   <%= list.name %>
                 </div>
               <% end %>
