@@ -1,0 +1,23 @@
+<div class="banner mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://149512919.v2.pressablecdn.com/wp-content/uploads/2021/12/philly-movies-hero-banner.jpg);">
+  <div class="container">
+    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
+    <p>Change your life and learn to code at one of our campuses around the world.</p>
+  </div>
+</div>
+
+
+
+    <div class="row">
+      <% @lists.each do |list| %>
+          <div class="col-md-4 mb-4"> <!-- Bootstrap grid for 3 columns on medium screens -->
+            <div class="card h-100"> <!-- Use h-100 to ensure cards take full height -->
+              <%= link_to list do %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.image_url %>)">
+                  <%= list.name %>
+                </div>
+              <% end %>
+                <%= link_to "Show this list", list, class: "btn btn-primary" %>
+              </div>
+            </div>
+      <% end %>
+      </div>

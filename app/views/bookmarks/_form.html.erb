@@ -1,0 +1,21 @@
+
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <div class="d-flex justify-content-center">
+    <div class="card p-4 shadow-sm mb-4 col-6">
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <div class="form-group mb-3">
+        <%= f.input :comment %>
+        <%= f.select @movies['results'].map { |movie| movie['original_title'] } %>
+        <%= f.association :movie %>
+      </div>
+      <div class="form-group mb-4 text-end">
+        <%= link_to "Back to #{@list.name}", list_path(@list), class: "btn btn-secondary" %>
+        <%= f.button :submit, class: "btn btn-success"%>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+
+<%# @movies['results'][0]['original_title'] %>

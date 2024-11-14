@@ -1,0 +1,40 @@
+<h1 class="text-center my-4">List: <%= @list.name %></h1>
+
+
+<!-- Movies Section -->
+<%if @list.bookmarks.any?%>
+<h2 class="text-center my-4">Movies in this List:</h2>
+<div class="container">
+    <!-- Back and Create Bookmark Links -->
+    <div  class="d-flex justify-content-between ms-auto mb-3">
+      <%= link_to "Back to Lists", lists_path, class: "btn btn-primary" %>
+      <%= link_to "Create Bookmark", new_list_bookmark_path(@list), class: "btn btn-success" %>
+    </div>
+
+  <div class="row">
+    <% @bookmarks.each do |bookmark| %>
+      <div class="col-md-4 mb-4">
+        <!-- bookmark.movie Card -->
+        <div class="card">
+          <img src="<%= bookmark.movie.poster_url%>" class="card-img-top" alt="<%= bookmark.movie.title %> poster" style="height: 200px; object-fit: cover;">
+          <div class="card-body">
+            <h5 class="card-title"><%= bookmark.movie.title %></h5>
+            <p><%= bookmark.comment %></p>
+            <p><%= bookmark.movie.overview %></p>
+            <p class="card-text"><strong>Rating:</strong> <%= bookmark.movie.rating %>/10</p>
+            <%= link_to "Delete",
+        bookmark_path(bookmark),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%else%>
+<h2 class="text-center mb-5">No movies in this list yet :(</h2>
+<div  class="text-center ms-auto mb-3">
+      <%= link_to "Back to Lists", lists_path, class: "btn btn-primary" %>
+      <%= link_to "Create Bookmark", new_list_bookmark_path(@list), class: "btn btn-success" %>
+    </div>
+<%end %>
