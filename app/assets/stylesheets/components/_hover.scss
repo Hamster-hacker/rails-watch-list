@@ -1,0 +1,23 @@
+.content{
+  transition: 0.5s;
+}
+
+.content-p{
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.8s;
+  color: rgb(0, 0, 0);
+}
+
+.content:hover{
+  box-shadow: 0 0 0 200px #F4F4F4 inset;
+}
+
+
+
+.content:hover .content-p{
+  opacity: 1;
+  transform: scale(1);
+}
+
+
