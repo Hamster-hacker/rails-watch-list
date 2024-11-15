@@ -5,12 +5,14 @@ class BookmarksController < ApplicationController
   def new
     @bookmark = Bookmark.new
     @list = List.find(params[:list_id])
-    movies_fetch
+    @movies = movies_fetch
   end
 
   def create
-    movies_fetch
-
+    @movie_id = params[:bookmark][:movie_id].to_i
+    @movies = movies_fetch
+    @movie = @movies.values.find {|m|[:id] == @movie_id}
+    raise
     @list = List.find(params[:list_id])
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.list = @list
@@ -34,7 +36,7 @@ class BookmarksController < ApplicationController
 
   def movies_fetch
     url = "https://tmdb.lewagon.com/movie/top_rated"
-    @movies = JSON.parse(URI.parse(url).read)
+    result = JSON.parse(URI.parse(url).read)
   end
 
   def bookmark_params
