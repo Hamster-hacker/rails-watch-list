@@ -13,7 +13,6 @@ class BookmarksController < ApplicationController
 
     @list = List.find(params[:list_id])
     @bookmark = Bookmark.new(bookmark_params)
-    raise
     @bookmark.list = @list
 
     if @bookmark.save
