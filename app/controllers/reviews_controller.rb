@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
   private
 
   def set_list
-    @list = list.find(params[:list_id])
+    @list = List.find(params[:list_id])
   end
 
   def review_params
