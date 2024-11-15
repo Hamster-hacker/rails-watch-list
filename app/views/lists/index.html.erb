@@ -13,7 +13,7 @@
           <div class="col-md-4 mb-4"> <!-- Bootstrap grid for 3 columns on medium screens -->
             <div class="card h-100 border-0" style="overflow: hidden; background-color: #121212;" > <!-- Use h-100 to ensure cards take full height -->
               <%= link_to list do %>
-                <div class="card-category image" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('<%= list.photo.attached? ? cl_image_path(list.photo.key) :asset_path(list.image_url) %>')">
+                <div class="card-category image" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('<%= cl_image_path(list.photo.key) %>')">
                   <%= list.name %>
                 </div>
               <% end %>
@@ -22,3 +22,6 @@
             </div>
       <% end %>
       </div>
+
+
+<%# <%= list.photo.attached? ? cl_image_path(list.photo.key) :asset_path(list.image_url) %> 
